@@ -1,0 +1,6 @@
+services:
+  codecase:
+    image: ${DOCKER_REGISTRY-}codecase
+    build:
+      context: .
+      dockerfile: CodeCase/Dockerfile
