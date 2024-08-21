@@ -1,6 +1,23 @@
+version: '3.8'
+
 services:
   codecase:
     image: ${DOCKER_REGISTRY-}codecase
     build:
       context: .
       dockerfile: CodeCase/Dockerfile
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+
+volumes:
+  sql_data:
