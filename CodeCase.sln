@@ -7,11 +7,26 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeCase", "CodeCase\CodeCa
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F6149843-84B7-4702-8530-DB86384B657D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCase.Repository", "CodeCase.Repository\CodeCase.Repository.csproj", "{4BA3E973-4570-4EDF-AC42-47F5600F604C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeCase.Repository", "CodeCase.Repository\CodeCase.Repository.csproj", "{4BA3E973-4570-4EDF-AC42-47F5600F604C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCase.IntegratedTest", "CodeCase.IntegratedTest\CodeCase.IntegratedTest.csproj", "{5DF83480-546C-4B99-B077-76DDB9B91E53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeCase.IntegratedTest", "CodeCase.IntegratedTest\CodeCase.IntegratedTest.csproj", "{5DF83480-546C-4B99-B077-76DDB9B91E53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCase.Domain", "CodeCase.Domain\CodeCase.Domain.csproj", "{E347AC16-C42F-40C9-97C8-5A68057E3AE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeCase.Domain", "CodeCase.Domain\CodeCase.Domain.csproj", "{E347AC16-C42F-40C9-97C8-5A68057E3AE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Config Docs", "0 - Config Docs", "{7CC62383-BBCB-4DCF-B91A-EEAF46BB6BAA}"
+	ProjectSection(SolutionItems) = preProject
+		init.sql = init.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{EA12A428-99FD-48FE-824F-C99984CCCDD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{2988F874-7BC6-4B75-AD32-F7E37F0C2EC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{43462BE3-9B5C-4FCD-AE12-F03C20896F85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Repository", "4 - Repository", "{3D7E95F4-DFCA-4F56-848E-0EC0224DF020}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 - Tests", "9 - Tests", "{A6F8D968-0101-4A25-80E8-2EE816EF0FCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +57,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B5F6BE70-70AE-4106-9DAF-BBD268EC479C} = {EA12A428-99FD-48FE-824F-C99984CCCDD4}
+		{F6149843-84B7-4702-8530-DB86384B657D} = {7CC62383-BBCB-4DCF-B91A-EEAF46BB6BAA}
+		{4BA3E973-4570-4EDF-AC42-47F5600F604C} = {3D7E95F4-DFCA-4F56-848E-0EC0224DF020}
+		{5DF83480-546C-4B99-B077-76DDB9B91E53} = {A6F8D968-0101-4A25-80E8-2EE816EF0FCC}
+		{E347AC16-C42F-40C9-97C8-5A68057E3AE4} = {43462BE3-9B5C-4FCD-AE12-F03C20896F85}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5F4BA068-3F12-4570-88F9-6581F62E1F64}
