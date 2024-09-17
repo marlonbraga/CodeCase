@@ -4,7 +4,9 @@ using CodeCase.Domain.Services;
 using CodeCase.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RabbitMQ.Client;
 using System;
+using System.Data.Common;
 
 namespace CodeCase.IntegratedTest
 {
@@ -15,6 +17,7 @@ namespace CodeCase.IntegratedTest
         protected readonly MessageBrokerFixture _messageBrokerFixture;
         //protected TurimBrainContext DbContext;
         protected IServiceProvider serviceProvider;
+        IModel _channel;
 
         public TestBase(/*DatabaseFixture databaseFixture, */MessageBrokerFixture messageBrokerFixture)
         {
@@ -46,12 +49,20 @@ namespace CodeCase.IntegratedTest
                     {
                         return new HandleHardSkillService(_messageBrokerFixture.Uri.ToString());
                     });
+                    services.AddScoped<IModel>(provider =>
+                    {
+                        var factory = new ConnectionFactory { Uri = _messageBrokerFixture.Uri };
+                        var _connection = factory.CreateConnection();
+                        _channel = _connection.CreateModel();
+                        return _channel;
+                    });
                 });
 
             var host = hostBuilder.Build();
             serviceProvider = host.Services;
             _ = host.Services.GetRequiredService<IHardSkillRepository>();
             _ = host.Services.GetRequiredService<IHandleHardSkillService>();
+            _ = host.Services.GetRequiredService<IModel>();
 
             /*
             var builder = WebApplication.CreateBuilder();
