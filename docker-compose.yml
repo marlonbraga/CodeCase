@@ -17,6 +17,12 @@ services:
     volumes:
       - sql_data:/var/opt/mssql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    entrypoint: 
+      - /bin/bash
+      - -c
+      - |
+        /opt/mssql/bin/sqlservr & sleep 30 && \
+        /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $SA_PASSWORD -i /docker-entrypoint-initdb.d/init.sql
     restart: always
 
 volumes:

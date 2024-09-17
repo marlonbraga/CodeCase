@@ -6,19 +6,33 @@ TODO: List 0/10
 4.[ ] classes com funcionalidades Controllers, Repository (CRUD)
 5.[ ] testContainers para simular ambiente de teste do MsSQL
 6.[ ] docker compose para criação de fila de mensagens (RabbitMQ)
-7.[ ] testContainers para simular ambiente de teste do RabbitMQ
+7.[X] testContainers para simular ambiente de teste do RabbitMQ
 8.[ ] 
 9.[ ] 
 0.[ ] 
  */
-namespace CodeCase.IntegratedTest
-{
-    public class UnitTest1
-    {
-        [Fact]
-        public void Test1()
-        {
+using Case.TestContainers.Api.Controllers;
+using CodeCase.Domain.Interfaces;
+using CodeCase.Repository;
+using Microsoft.Extensions.DependencyInjection;
 
-        }
+namespace CodeCase.IntegratedTest;
+
+public class UnitTest1 : TestBase
+{
+    public UnitTest1(MessageBrokerFixture messageBrokerFixture) : base(messageBrokerFixture)
+    {
+    }
+
+    [Fact]
+    public void Test1()
+    {
+        var hardSkillRepository = serviceProvider.GetRequiredService<IHardSkillRepository>();
+        var handleHardSkillService = serviceProvider.GetRequiredService<IHandleHardSkillService>();
+        HardSkillController controller = new (hardSkillRepository, handleHardSkillService);
+
+        controller.SendHardSkill("Hello World!");
+
+        Assert.True(true);
     }
 }

@@ -12,3 +12,6 @@ CREATE TABLE SoftSkills (
     SoftSkillId INT PRIMARY KEY,
     SoftSkillName NVARCHAR(50)
 );
+
+--INSERT INTO HardSkills VALUES ('C-Sharp', '2015-01-01');
+--INSERT INTO HardSkills VALUES ('.NET 8+', '2015-01-01');
